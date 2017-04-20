@@ -3,7 +3,7 @@ FROM centos:centos6.9
 LABEL name="Total Recall CentOS 6 Base Image"
 
 RUN yum -y install epel-release && yum -y install python-pip python-devel git libselinux-python libffi-devel openssl-devel gcc net-tools && \
-    pip install --upgrade pip && pip install setuptools==21.0.0 ansible==2.2.1.0 && \
+    pip install --upgrade pip && pip install setuptools==21.0.0 ansible==2.3.0.0 && \
     curl -s -L https://www.opscode.com/chef/install.sh | bash -s -- -v latest
     
 CMD env GEM_HOME=/tmp/verifier GEM_PATH=/tmp/verifier GEM_CACHE=/tmp/verifier/gems/cache /opt/chef/embedded/bin/gem install thor busser busser-serverspec serverspec bundler && \
