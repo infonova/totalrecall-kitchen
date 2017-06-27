@@ -2,6 +2,10 @@ FROM centos:centos7
 
 LABEL name="Total Recall CentOS 7 Base Image"
 
+# Setting LC_ALL and LANG to en_US.UTF-8 to get Click to work
+# http://click.pocoo.org/5/python3/
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
 
 # https://github.com/CentOS/sig-cloud-instance-images/issues/41
 RUN mkdir -p /etc/selinux/targeted/contexts ; echo '<busconfig><selinux></selinux></busconfig>' > /etc/selinux/targeted/contexts/dbus_contexts
