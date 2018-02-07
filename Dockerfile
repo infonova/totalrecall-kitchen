@@ -9,9 +9,6 @@ RUN yum -y install epel-release && yum -y install cronie initscripts polkit pyth
     pip install --upgrade pip && pip install setuptools==21.0.0 ansible==2.4.3.0 && \
     curl -s -L https://www.opscode.com/chef/install.sh | bash -s -- -v latest
 
-# gen dummy keys, centos doesn't autogen them like ubuntu does
-RUN /usr/bin/ssh-keygen -A
-
 # SSH login fix. Otherwise user is kicked off after login
 RUN sed -ri 's/^session\s+required\s+pam_loginuid.so$/session optional pam_loginuid.so/' /etc/pam.d/sshd
 
